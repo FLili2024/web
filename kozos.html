@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lily's web</title>
+    <link rel="stylesheet" href="kozos.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Beosztás és Elfoglaltságok összeegyeztetése</h1>    
+    </header>
+    <button class="sidebar-toggle" id="toggleButton">☰ Menü</button>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <h2>Menü</h2>
+            <nav>
+                <ul>
+                    <li><a href="#Főoldal" class="active">Főoldal</a></li>
+                    <li><a href="#Áron">Áron beosztása</a></li>
+                    <li><a href="#Lily">Lily elfoglaltságok</a></li>                    
+                    <li><a href="#Közös">Közös programok</a></li>
+
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <section id="Főoldal">
+                <h1>Január</h1>
+                
+            </section>
+
+            <section id="Áron">
+                <h1>Áron beosztás</h1>
+                <img src="beosztas.jpg" width="1080" height="90">
+            </section>
+
+            <section id="Lily">
+                <h1>Lily elfoglaltságok</h1>
+                <p>
+                Január 6: Beni vizsga 12:00 <br>
+                Január 7: Beni vizgsa 7:50, 8:50, 10:50, 11:50 <br>
+                Január 8: Beni vizsga 9:50, 10:50 12:50 <br>
+                Január 9: Beni vizsga 9:50, 11:50, 12:50 <br>
+                Január 10: Beni vizsga 9:50, 10:50, 11:50 <br>
+                Január 10: Pszichológus 13:30 <br>
+                Január 17: Vizsga előtti nap <br>
+                Január 18: Az informatika logikai alapjai vizsga 9:00 <br>
+                Január 22: Anya szülinapja <br>
+
+               </p> 
+            </section>
+
+            <section id="Közös">
+                <h1>Közös programok</h1>
+                <p>
+                    Egyelőre nincs ilyen
+                </p>
+
+            </section>
+
+        </main>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Lily's Web. All Rights Reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
