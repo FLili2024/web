@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lily's web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Beosztás és programok</h1>    
+    </header>
+    <button class="sidebar-toggle" id="toggleButton">☰ Menü</button>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <h2>Menü</h2>
+            <nav>
+                <ul>
+                    <li><a href="#Főoldal" class="active">Főoldal</a></li>
+                    <li><a href="#Áron">Áron beosztása</a></li>
+                    <li><a href="#Lily">Lily elfoglaltságok</a></li>                    
+                    <li><a href="#Közös">Közös programok</a></li>
+
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <section id="Főoldal">
+                <h1><center>Június</center></h1>
+                
+            </section>
+
+            <section id="Áron">
+                <h2>Áron beosztás</h2>
+                <img src="beosztas.png" width="1450" height="120">
+                <p>
+                    Június 1: Apád szülinapja <br>
+                </p>
+
+            </section>
+
+            <section id="Lily">
+                <h2>Lily elfoglaltságok</h2>
+                <p>
+                    Június 3: pszicho 13:30 <br>
+                    Június 4: Patak 9:20 <br>
+                    Június 5: Mileff vizsga <br>
+                    Június 10: Matek vizsga <br>
+                </p>
+    
+                
+            </section>
+
+            <section id="Közös">
+                <h2>Közös programok</h2>
+                <p>
+                    Június 13: Szülinapi buli <br> <br>
+                
+
+            </section>
+
+        </main>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Lily's Web. All Rights Reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Június Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #FF8A8A;
+      overflow: hidden;
+      font-family: 'Brush Script MT', cursive;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .cone {
+      position: absolute;
+      bottom: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 150px;
+      background: #D2A679;
+      clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+      animation: coneIn 2s forwards;
+    }
+
+    @keyframes coneIn {
+      to {
+        bottom: 50px;
+      }
+    }
+
+    .scoop {
+      position: absolute;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+
+    .scoop1 {
+      background: #ffc965;
+      top: -100px;
+      animation: scoopDrop1 1.5s 2.2s forwards;
+    }
+
+    .scoop2 {
+      background: #7eff9e;
+      top: -100px;
+      animation: scoopDrop2 1.5s 2.5s forwards;
+    }
+
+    .scoop3 {
+      background: #84fdd1;
+      top: -100px;
+      animation: scoopDrop3 1.5s 2.8s forwards;
+    }
+
+    @keyframes scoopDrop1 {
+      to {
+        top: calc(100vh - 200px - 80px);
+      }
+    }
+
+    @keyframes scoopDrop2 {
+      to {
+        top: calc(100vh - 200px - 160px);
+      }
+    }
+
+    @keyframes scoopDrop3 {
+      to {
+        top: calc(100vh - 200px - 240px);
+      }
+    }
+
+    .title {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      color: #AB1C93;
+      opacity: 0;
+      animation: fadeIn 1.5s 4.2s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+  <script>
+    // Átirányítás az animáció után
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        window.location.href = 'junius.html';
+      }, 5700); // 4.2s animáció + 3s várakozás = 7.2s összesen
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="cone"></div>
+    <div class="scoop scoop1"></div>
+    <div class="scoop scoop2"></div>
+    <div class="scoop scoop3"></div>
+    <div class="title">június</div>
+  </div>
+</body>
+</html>
