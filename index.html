@@ -1,119 +1,121 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Június Landing Page</title>
+  <meta charset="UTF-8">
+  <title>Júliusi torta</title>
   <style>
     body {
       margin: 0;
-      background-color: #FF8A8A;
-      overflow: hidden;
-      font-family: 'Brush Script MT', cursive;
-    }
-
-    .container {
-      position: relative;
-      width: 100vw;
+      background: linear-gradient(to top, #d670ff, #8401a5);
       height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
     }
 
-    .cone {
+    .cake {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .layer {
       position: absolute;
-      bottom: -200px;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
-      height: 150px;
-      background: #D2A679;
-      clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
-      animation: coneIn 2s forwards;
+      background-color: #931cb1;
+      border: 5px solid #fff;
+      border-radius: 10px;
     }
 
-    @keyframes coneIn {
-      to {
-        bottom: 50px;
-      }
-    }
-
-    .scoop {
-      position: absolute;
-      left: 50%;
-      width: 80px;
+    .layer.bottom {
+      width: 200px;
       height: 80px;
-      border-radius: 50%;
+      bottom: 0;
+    }
+
+    .layer.top {
+      width: 140px;
+      height: 60px;
+      bottom: 80px;
+      background-color: #ab37c8;
+    }
+
+    .candle {
+      position: absolute;
+      width: 10px;
+      height: 30px;
+      background: #ffffff;
+      border-radius: 2px;
+      top: -30px;
+      left: 50%;
       transform: translateX(-50%);
     }
 
-    .scoop1 {
-      background: #ffc965;
-      top: -100px;
-      animation: scoopDrop1 1.5s 2.2s forwards;
-    }
-
-    .scoop2 {
-      background: #7eff9e;
-      top: -100px;
-      animation: scoopDrop2 1.5s 2.5s forwards;
-    }
-
-    .scoop3 {
-      background: #84fdd1;
-      top: -100px;
-      animation: scoopDrop3 1.5s 2.8s forwards;
-    }
-
-    @keyframes scoopDrop1 {
-      to {
-        top: calc(100vh - 200px - 80px);
-      }
-    }
-
-    @keyframes scoopDrop2 {
-      to {
-        top: calc(100vh - 200px - 160px);
-      }
-    }
-
-    @keyframes scoopDrop3 {
-      to {
-        top: calc(100vh - 200px - 240px);
-      }
-    }
-
-    .title {
+    .flame {
       position: absolute;
-      top: 40%;
+      top: -12px;
       left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 5rem;
-      color: #AB1C93;
-      opacity: 0;
-      animation: fadeIn 1.5s 4.2s forwards;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 15px;
+      background: radial-gradient(circle, #ff0, orange, red);
+      border-radius: 50% 50% 50% 50%;
+      animation: flicker 0.3s infinite;
+      opacity: 0.8;
     }
 
-    @keyframes fadeIn {
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+      50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+      100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+    }
+
+    .july-text {
+      margin-top: 40px;
+      font-size: 48px;
+      color: #750497;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: appear 2s forwards 1s;
+    }
+
+    @keyframes appear {
       to {
         opacity: 1;
+        transform: scale(1);
       }
     }
   </style>
+</head>
+<body>
+
+  <div class="cake">
+    <div class="layer bottom"></div>
+    <div class="layer top">
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+      <div class="candle" style="left: 35%;">
+        <div class="flame"></div>
+      </div>
+      <div class="candle" style="left: 65%;">
+        <div class="flame"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="july-text">Július</div>
   <script>
     // Átirányítás az animáció után
     window.addEventListener('load', () => {
       setTimeout(() => {
-        window.location.href = 'junius.html';
+        window.location.href = 'julius.html';
       }, 5700); // 4.2s animáció + 3s várakozás = 7.2s összesen
     });
   </script>
-</head>
-<body>
-  <div class="container">
-    <div class="cone"></div>
-    <div class="scoop scoop1"></div>
-    <div class="scoop scoop2"></div>
-    <div class="scoop scoop3"></div>
-    <div class="title">június</div>
-  </div>
+
 </body>
 </html>
