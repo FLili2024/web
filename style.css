@@ -1,28 +1,29 @@
-/* General Styles */
+/* Általános stílus */
 body {
   margin: 0;
-  color: #ffffff;
-  background: #8401a5;
+  color: #e0e0e0;
+  background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d); /* naplementés átmenet */
   height: 175vh;
+  font-family: Arial, sans-serif;
 }
 
 .header {
-  background-color: #d670ff; 
+  background-color: #ff6f00; /* narancsos */
   text-align: center;
   padding: 1rem 0;
-  border-bottom: 2px solid #7079ff;
+  border-bottom: 2px solid #ffab40;
 }
 .header h1 {
   margin: 0;
   font-size: 3rem;
-  color: #8401a5;
+  color: #fff3e0;
 }
 
 .sidebar-toggle {
   position: fixed;
   top: 10px;
   left: 10px;
-  background-color: #a915ca;
+  background-color: #ff5722;
   color: #ffffff;
   border: none;
   padding: 15px 25px;
@@ -30,16 +31,15 @@ body {
   font-size: 1rem;
   border-radius: 5px;
   z-index: 1000;
-  font-family: Arial, sans-serif;
 }
 .sidebar-toggle:hover {
-  background-color: #b15eff;
+  background-color: #e64a19;
 }
 
-/* Sidebar */
+/* Oldalsáv */
 .sidebar {
   width: 250px;
-  background-color: #be1fd3;
+  background-color: #37474f;
   padding: 1rem;
   height: 100vh;
   position: fixed;
@@ -53,7 +53,7 @@ body {
   left: 0;
 }
 .sidebar h2 {
-  color: #AB1C93;
+  color: #ffcc80;
   text-transform: uppercase;
 }
 .sidebar ul {
@@ -65,21 +65,20 @@ body {
 }
 .sidebar ul li a {
   text-decoration: none;
-  color: #510563;
+  color: #ffccbc;
   font-size: 1.2rem;
   transition: color 0.3s;
 }
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  color: #800060;
+  color: #ff8a65;
 }
 
-/* Main Content */
+/* Főtartalom */
 .main-content {
   margin-left: 20px;
   padding: 2rem;
   transition: margin-left 0.3s ease;
-  font-family: Arial, sans-serif;
 }
 .sidebar.active ~ .main-content {
   margin-left: 270px;
@@ -89,24 +88,24 @@ body {
 }
 .main-content h1 {
   font-size: 40px;
-  color: #b35fe1;
+  color: #ffe082;
 }
 .main-content h2 {
   font-size: 30px;
-  color: #b35fe1;  
+  color: #ffd54f;
 }
 .main-content p {
   font-size: 22px;
   line-height: 1.6;
-  color: #d277e6;
+  color: #f5f5f5;
 }
 
-/* Footer */
+/* Lábléc */
 .footer {
-  background-color: #d670ff;
+  background-color: #ff6f00;
   text-align: center;
   padding: 1rem;
-  border-top: 2px solid #7079ff;
+  border-top: 2px solid #ffab40;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -114,5 +113,5 @@ body {
 .footer p {
   margin: 0;
   font-size: 1rem;
-  color: #8401a5;
+  color: #fff3e0;
 }
