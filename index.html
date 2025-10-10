@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autumn Birthday</title>
+<style>
+  html, body {
+    margin: 0;
+    background: linear-gradient(to bottom, #3b1a64 0%, #2b103f 100%);
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+  }
+  #october {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Brush Script MT', cursive;
+    font-size: 90px;
+    color: #ffa54c;
+    text-shadow: 0 0 20px rgba(255,165,0,0.7);
+    opacity: 0;
+    transition: opacity 2s ease-in;
+  }
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<div id="october">October</div>
+
+<script>
+const canvas = document.getElementById("scene");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+// 🍂 Falling leaves
+const leaves = [];
+for (let i = 0; i < 25; i++) {
+  leaves.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: 10 + Math.random() * 10,
+    speed: 0.5 + Math.random() * 1,
+    angle: Math.random() * Math.PI * 2,
+    color: ["#ff7b00", "#ffb347", "#c77dff", "#9d4edd"][Math.floor(Math.random()*4)]
+  });
+}
+
+// 🎂 Cake properties
+const cake = {
+  x: canvas.width / 2 - 75,
+  y: canvas.height - 200,
+  width: 150,
+  height: 80,
+  icingColor: "#c77dff",
+  baseColor: "#ff8c00"
+};
+
+const candles = [
+  {x: -40, flame: Math.random()*Math.PI*2},
+  {x: 0, flame: Math.random()*Math.PI*2},
+  {x: 40, flame: Math.random()*Math.PI*2}
+];
+
+function drawCake() {
+  // Cake base
+  ctx.fillStyle = cake.baseColor;
+  ctx.fillRect(cake.x, cake.y, cake.width, cake.height);
+  
+  // Icing
+  ctx.fillStyle = cake.icingColor;
+  ctx.beginPath();
+  ctx.moveTo(cake.x, cake.y);
+  ctx.quadraticCurveTo(cake.x + cake.width/2, cake.y - 25, cake.x + cake.width, cake.y);
+  ctx.closePath();
+  ctx.fill();
+  
+  // Candles
+  candles.forEach(c => {
+    const cx = cake.x + cake.width/2 + c.x;
+    ctx.fillStyle = "#e0c3fc";
+    ctx.fillRect(cx - 5, cake.y - 40, 10, 40);
+    // Flame
+    const flicker = Math.sin(Date.now()/100 + c.flame)*2;
+    ctx.beginPath();
+    const grad = ctx.createRadialGradient(cx, cake.y - 45 + flicker, 1, cx, cake.y - 45 + flicker, 8);
+    grad.addColorStop(0, "#fff7ae");
+    grad.addColorStop(1, "rgba(255,140,0,0)");
+    ctx.fillStyle = grad;
+    ctx.arc(cx, cake.y - 45 + flicker, 8, 0, Math.PI * 2);
+    ctx.fill();
+  });
+}
+
+function drawLeaves() {
+  for (let leaf of leaves) {
+    ctx.beginPath();
+    ctx.fillStyle = leaf.color;
+    ctx.ellipse(leaf.x, leaf.y, leaf.size, leaf.size/2, leaf.angle, 0, Math.PI*2);
+    ctx.fill();
+    leaf.y += leaf.speed;
+    leaf.x += Math.sin(leaf.angle)*0.5;
+    leaf.angle += 0.01;
+    if (leaf.y > canvas.height + 20) leaf.y = -20;
+  }
+}
+
+function drawGround() {
+  const grad = ctx.createLinearGradient(0, canvas.height-150, 0, canvas.height);
+  grad.addColorStop(0, "#5a189a");
+  grad.addColorStop(1, "#3b0a45");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, canvas.height - 150, canvas.width, 150);
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawGround();
+  drawLeaves();
+  drawCake();
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+// ✨ Show October text & redirect
+setTimeout(() => {
+  document.getElementById("october").style.opacity = 1;
+}, 5000);
+
+setTimeout(() => {
+  window.location.href = "oktober.html";
+}, 8000);
+</script>
+</body>
+</html>
